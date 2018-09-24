@@ -1,0 +1,79 @@
+body{ 
+    background: url("../images/background.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+.container {
+    background-color: black;
+    margin-top: 10em;
+}
+
+.title {
+    padding: .5em;
+    font-family: 'Notable', sans-serif;
+    font-size: 4em;
+    color: rgb(9, 106, 172);
+}
+
+.jumbotron {
+    padding-bottom: 4em;
+    background-image: url("../images/fightclub.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn-lg.round {
+    border-radius: 24px;
+    background-color: rgb(9, 106, 172);
+    color: rgb(236, 238, 232);
+    font-family: 'Notable', sans-serif;
+}
+
+.btn {
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+#questions-box {
+    color: rgb(236, 238, 232);
+    font-size: 1em;   
+}
+
+h4 {
+   
+    color: rgb(9, 106, 172);
+    padding: .3em;
+    font-family: 'Notable', sans-serif;
+    font-weight: 600;
+}
+
+#questions-box {
+    color: rgb(236, 238, 232);
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 3em;
+    
+}
+
+.radio-button {
+    margin: .3em;
+    display: inline;
+}
+
+#timer {
+    color: rgb(236, 238, 232);
+    font-size: 2em;
+    font-family: 'Notable', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
