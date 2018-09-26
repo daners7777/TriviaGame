@@ -53,13 +53,14 @@ h4 {
 #questions-box {
     color: rgb(236, 238, 232);
     font-family: 'Roboto Slab', serif;
-    margin-bottom: 3em;
-    
+    margin-bottom: 3em; 
 }
 
 .radio-button {
     margin: .3em;
     display: inline;
+    
+    
 }
 
 #timer {
@@ -68,11 +69,13 @@ h4 {
     font-family: 'Notable', sans-serif;
 }
 
+.results {
+    display: none;
+}
 
-
-
-
-
+span {
+    color: rgb(236, 238, 232); 
+}
 
 
 
