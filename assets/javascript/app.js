@@ -1,5 +1,7 @@
 //JavaScript doesn't get run until the HTML is finished loading
 $(document).ready(function () {
+    
+    $("#submit").hide();
 
     //defined variables
     var timer;
@@ -17,6 +19,7 @@ $(document).ready(function () {
         }
     }
     
+    //Object containging questions, choices and answer
     var questions = [
         new Question("Which war movie won the Academy Award for Best Picture in 2009?",
             ["Saving Private Ryan", "The Hurt Locker", "Platoon", "Full Metal Jacket"],
@@ -35,8 +38,8 @@ $(document).ready(function () {
             "Pretty Woman"),
 
         new Question("Which 1952 musical comedy tells the story of three performers making the transition from silent movies to 'talkies'?",
-            ["Singin' in the Rain", "My Fair Lady", "Sound of Music", "Grease"],
-            "Singin'in the Rain"),
+            ["Singin` in the Rain", "My Fair Lady", "Sound of Music", "Grease"],
+            "Singin` in the Rain"),
 
         new Question("Who played Jack Dawson in the 1997 epic Titanic?",
             ["George Clooney", "Leonardo DiCaprio", "Matt Damon", "Charlie Cox"],
@@ -60,69 +63,95 @@ $(document).ready(function () {
 
     ];
 
-    // This .on("click") function will trigger the AJAX Call
+    // This .on("click") function will trigger the start game
     $("#start").on("click", function () {
-        AddQuestions();
-        AddTimer();
-
+        ShowQuestions();
+        ShowTimer();
+        $("#submit").show();
+        $(".score").hide();
     });
 
-    function AddTimer() {
-        timer = 25;
-        $('#timer').text(timer);
+    // This .on("click") function will trigger submitting the game
+    $("#submit").on("click", function () {
+        FinalScore();
+        $("#start-screen").show();
+        $("#timer").hide();
         clearInterval(intervalId);
-        intervalId = setInterval(decrementTimer, 1000);
+        $("#new-game").show();
+
+    });   
+
+    // This .on("click") function will trigger a new game
+    $("#new-game").on("click", function () {
+        $("#timer").show();
+        $("#submit").show();
+        $(".score").hide();
+        correct = 0;
+        incorrect = 0;
+        ShowTimer();
+        $( ".radio-button" ).prop( "checked", false );
+    });
+
+   
+    //Function to create the timer
+    function ShowTimer() {
+        timer = 30;
+        $("#timer").text(timer);
+        clearInterval(intervalId);
+        intervalId = setInterval(DecreaseTimer, 1000);
+       
     };
 
-    function decrementTimer() {
+    //Function to decrease the timer
+    function DecreaseTimer() {
         timer--;
         if (timer === 0) {
-            stopTimer();
-
+            StopTimer();
         }
 
-        $('#timer').text(timer);
+        $("#timer").text(timer);
     };
 
-    function stopTimer() {
+    //Function to stop timer at zero
+    function StopTimer() {
         clearInterval(intervalId);
-        submitGame();
+        FinalScore();
         $("#start-screen").show();
-        $('#timer').hide();
+        $("#timer").hide();
+        $("#new-game").show();
     };
 
-    function AddQuestions() {
+    //Add the questions to the HTML div queston box looping through all questions
+    function ShowQuestions() {
         $("#start-screen").hide()
         for (var i = 0; i < questions.length; i++) {
             $("#questions-box").append($("<h4>" + questions[i].question + "<h4>"))
             for (var j = 0; j < questions[i].choices.length; j++) {
                 $("#questions-box").append($("<input type='radio' class='radio-button'value='" + questions[i].choices[j] + "'name='question-" + i + "'>" + questions[i].choices[j] + "<br>"))
-                $('#timer').show();
-                $('.results').hide();
+                $("#timer").show();
+                
                 }
             }   
         }
-
-    function submitGame() {
-        for (var i = 0; i < questions.length; i++) {
-            $.each($("input[name='question-" + i + "']:checked"), function () {
-                var userGuess = $(this).attr("value");
-                if (userGuess === questions[i].answer) {
-                    console.log("you got it right!");
-                    correct++;
-                } else {
-                    console.log("wrong");
-                    incorrect++;
-                }
-                
-            });
+        //Add to the amount of correct or incorrect to get final score
+        function FinalScore() {
+            for (var i = 0; i < questions.length; i++) {
+                $.each($("input[name='question-" + i + "']:checked"), function () {
+                    var questionInput = $(this).attr("value");
+                    if (questionInput === questions[i].answer) {
+                        correct++;
+                    } else {
+                        incorrect++;
+                        
+                    }
+                });   
             
-        }
+        //Displays everything on screen - correct, incorrect, etc.        
         $(".btn, .btn-primary, .btn-lg, .round").hide();
-        $('span#correct').text(correct);
-        $('span#incorrect').text(incorrect);
-        $('.results').show();
-        
-    };
-
+        $("span#correct").text(correct);
+        $("span#incorrect").text(incorrect);
+        $(".score").show();
+        $("#start").hide();
+        };
+    }
 });

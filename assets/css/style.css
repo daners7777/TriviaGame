@@ -37,10 +37,6 @@ body{
     padding-right: 5em;
 }
 
-#questions-box {
-    color: rgb(236, 238, 232);
-    font-size: 1em;   
-}
 
 h4 {
    
@@ -55,12 +51,13 @@ h4 {
     font-family: 'Roboto Slab', serif;
     margin-bottom: 3em; 
 }
+    
 
 .radio-button {
-    margin: .3em;
-    display: inline;
-    
-    
+    margin: .3em;   
+    /* display: flex;
+   
+    flex-wrap: nowrap; */
 }
 
 #timer {
@@ -69,13 +66,25 @@ h4 {
     font-family: 'Notable', sans-serif;
 }
 
-.results {
+.score {
     display: none;
+    padding-bottom: 1em;
 }
 
 span {
     color: rgb(236, 238, 232); 
 }
+
+#submit {
+    margin-bottom: 2em;
+}
+
+#new-game{
+    display: none;
+    
+}
+
+
 
 
 
