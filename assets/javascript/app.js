@@ -89,6 +89,7 @@ $(document).ready(function () {
         incorrect = 0;
         ShowTimer();
         $( ".radio-button" ).prop( "checked", false );
+        $("#start-screen").hide();
     });
 
    
