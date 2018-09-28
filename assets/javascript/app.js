@@ -71,7 +71,7 @@ $(document).ready(function () {
         $(".score").hide();
     });
 
-    // This .on("click") function will trigger submitting the game
+    // This .on("click") function will trigger submitting game
     $("#submit").on("click", function () {
         FinalScore();
         $("#start-screen").show();
