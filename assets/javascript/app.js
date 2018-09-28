@@ -19,7 +19,7 @@ $(document).ready(function () {
         }
     }
     
-    //Object containging questions, choices and answer
+    //Object containing questions, choices and answer
     var questions = [
         new Question("Which war movie won the Academy Award for Best Picture in 2009?",
             ["Saving Private Ryan", "The Hurt Locker", "Platoon", "Full Metal Jacket"],
@@ -78,7 +78,6 @@ $(document).ready(function () {
         $("#timer").hide();
         clearInterval(intervalId);
         $("#new-game").show();
-
     });   
 
     // This .on("click") function will trigger a new game
@@ -99,7 +98,6 @@ $(document).ready(function () {
         $("#timer").text(timer);
         clearInterval(intervalId);
         intervalId = setInterval(DecreaseTimer, 1000);
-       
     };
 
     //Function to decrease the timer
@@ -127,9 +125,9 @@ $(document).ready(function () {
         for (var i = 0; i < questions.length; i++) {
             $("#questions-box").append($("<h4>" + questions[i].question + "<h4>"))
             for (var j = 0; j < questions[i].choices.length; j++) {
-                $("#questions-box").append($("<input type='radio' class='radio-button'value='" + questions[i].choices[j] + "'name='question-" + i + "'>" + questions[i].choices[j] + "<br>"))
+                $("#questions-box").append($("<input type='radio' class='radio-button'value='" + 
+                questions[i].choices[j] + "'name='question-" + i + "'>" + questions[i].choices[j] + "<br>"))
                 $("#timer").show();
-                
                 }
             }   
         }
@@ -142,7 +140,6 @@ $(document).ready(function () {
                         correct++;
                     } else {
                         incorrect++;
-                        
                     }
                 });   
             

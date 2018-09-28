@@ -37,9 +37,7 @@ body{
     padding-right: 5em;
 }
 
-
 h4 {
-   
     color: rgb(9, 106, 172);
     padding: .3em;
     font-family: 'Notable', sans-serif;
@@ -49,15 +47,10 @@ h4 {
 #questions-box {
     color: rgb(236, 238, 232);
     font-family: 'Roboto Slab', serif;
-    margin-bottom: 3em; 
 }
-    
 
 .radio-button {
-    margin: .3em;   
-    /* display: flex;
-   
-    flex-wrap: nowrap; */
+    margin: .3em; 
 }
 
 #timer {
@@ -68,7 +61,7 @@ h4 {
 
 .score {
     display: none;
-    padding-bottom: 1em;
+    margin-top: 1em;
 }
 
 span {
@@ -76,14 +69,13 @@ span {
 }
 
 #submit {
+    margin-top: 2em;
     margin-bottom: 2em;
 }
 
 #new-game{
     display: none;
-    
 }
-
 
 
 
