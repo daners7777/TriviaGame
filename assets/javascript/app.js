@@ -95,7 +95,7 @@ $(document).ready(function () {
    
     //Function to create the timer
     function ShowTimer() {
-        timer = 30;
+        timer = 60;
         $("#timer").text(timer);
         clearInterval(intervalId);
         intervalId = setInterval(DecreaseTimer, 1000);
